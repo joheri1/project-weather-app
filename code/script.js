@@ -1,6 +1,6 @@
 //API URL and Endpoints
 const BASE_URL = "https://api.openweathermap.org/data/2.5/"
-const api_key = "617b18d1663716ef276314bb0808d62b"
+const api_key = "xxx"
 
 // DOM Selectors
 const cityName = document.getElementById("city")
