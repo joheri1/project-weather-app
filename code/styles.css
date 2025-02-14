@@ -73,6 +73,10 @@ body {
   overflow-y: auto
 }
 
+#input-container {
+  padding: 20px;
+}
+
 #weather-icon {
   display: block;
   margin: 0 auto;  
