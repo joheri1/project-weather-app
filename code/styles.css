@@ -98,7 +98,7 @@ body {
   display: flex;
   flex-direction: row; 
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .forecast #four-day-forecast p {
