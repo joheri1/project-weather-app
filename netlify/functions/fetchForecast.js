@@ -1,4 +1,3 @@
-// file: fetchForecast.js
 
 exports.handler = async function (event) {
   const API_KEY = process.env.API_KEY; 
@@ -11,17 +10,36 @@ exports.handler = async function (event) {
     };
   }
 
-  // Anropa forecast-endpointen
+  // Forecast-endpoint
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`;
   
   try {
     const response = await fetch(url);
+    if (!response.ok) {
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ 
+          error: `Failed to fetch forecast data (status ${response.status})` 
+        }),
+      };
+    }
+
     const data = await response.json();
+
+    if (!data.list) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ 
+          error: "No forecast data found for that city" 
+        }),
+      };
+    }
 
     return {
       statusCode: 200,
       body: JSON.stringify(data),
     };
+
   } catch (error) {
     return {
       statusCode: 500,
@@ -29,3 +47,4 @@ exports.handler = async function (event) {
     };
   }
 };
+
