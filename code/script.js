@@ -37,8 +37,13 @@ const fetchTodaysWeatherAsync = async (city) => {
         //Update DOM with today's weather data
         cityName.innerHTML = data.name
         temperature.innerHTML = `${Math.round(data.main.temp)} °C`
-        description.innerHTML = data.weather[0].description
-        
+
+        //Capitalize the description
+        const rawDescription = data.weather[0].description
+        const capitalizedDescription = rawDescription.charAt(0).toUpperCase() + rawDescription.slice(1)
+        description.innerHTML = capitalizedDescription
+
+        // Save description in a varible to get the icons
         const weatherDescription = data.weather[0].description
 
         //Weather icon
