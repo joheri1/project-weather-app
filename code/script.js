@@ -1,5 +1,6 @@
 //API URL and Endpoints
 const BASE_URL = "/.netlify/functions/fetchWeather";
+const BASE_URL_FORECAST = "/.netlify/functions/fetchForecast";
 
 // DOM Selectors
 const cityName = document.getElementById("city")
@@ -71,7 +72,7 @@ fetchTodaysWeatherAsync("Las Vegas")
 
 //Fetch forecast weather
 const fetchForecastWeatherAsync = async (city) => {
-    const forecastURL = `${BASE_URL}?city=${city}`;
+    const forecastURL = `${BASE_URL_FORECAST}?city=${city}`;
 
      // units=metric to get temperatures in Celcius and cnt=40 for a 5 day forecast, then we remove todays forecast
     try {
