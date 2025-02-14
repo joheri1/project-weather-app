@@ -87,6 +87,9 @@ const fetchForecastWeatherAsync = async (city) => {
         const forecastDate = new Date(forecast.dt_txt)
         return forecastDate.getHours() === 12 && forecastDate.getDate() !== today
       })
+
+      fourDayForecast.innerHTML = ""
+
       filteredForecast.forEach(forecast => {
         let forecastDate = new Date(forecast.dt_txt)//Convert date to Date const
         let dayName = weekdays[forecastDate.getDay()] // Get weekday
@@ -103,4 +106,29 @@ const fetchForecastWeatherAsync = async (city) => {
     console.error("Error when fetching the forecast", error)
      }
 }
+// Las Vegas is default
+fetchTodaysWeatherAsync("Las Vegas")
 fetchForecastWeatherAsync("Las Vegas")
+
+// Add input field functionality 
+
+const searchCityInput = document.getElementById("search-city")
+const searchButton = document.getElementById("search-button")
+
+searchButton.addEventListener("click", () => {
+  const city = searchCityInput.value.trim()
+  if (city !== "") {
+    // Clear forecast
+    fourDayForecast.innerHTML = ""
+    // Fetch weather for searched city
+    fetchTodaysWeatherAsync(city)
+    fetchForecastWeatherAsync(city)
+  }
+})
+
+searchCityInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    searchButton.click()
+  }
+})
+
