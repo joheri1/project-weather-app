@@ -51,8 +51,6 @@ const fetchTodaysWeatherAsync = async (city) => {
     const weatherDescription = data.weather[0].description;
     const capitalizedDescription = weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
     description.innerHTML = `${capitalizedDescription} | ${Math.round(data.main.temp)} °C`;
-    cityName.innerHTML = data.name;
-    temperature.innerHTML = `${Math.round(data.main.temp)} °C`;
 
     // Weather icon
     const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
