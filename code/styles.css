@@ -22,7 +22,7 @@ img {
 /* ========== Main container ========== */
 
 .weather-container {
-  background: linear-gradient(to bottom, #d1c4e9, #fff);
+  /*background: linear-gradient(to bottom, #d1c4e9, #fff);*/
   border-radius: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
