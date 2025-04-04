@@ -45,6 +45,7 @@ const weatherThemes = {
   "light snow": {
     background: "rgb(240, 240, 255)",
     text: "#444"
+  },
 };
 
 // ========== DOM Elements ==========

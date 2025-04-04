@@ -66,13 +66,19 @@ img {
 .bottom-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
+  width: 100%;
 }
 
 .forecast,
 .search-form {
   width: 48%;
+}
+
+.forecast {
+  flex: 1;
 }
 
 #four-day-forecast {
@@ -92,24 +98,26 @@ img {
 
 .search-form {
   display: flex;
+  align-items: center;
   gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 #search-city {
   flex: 2;
   padding: 8px;
+  border: 2px solid currentColor;
   border-radius: 8px;
-  border: none;
-  outline: none;
+  background-color: white;
 }
 
 #search-button {
   flex: 1;
-  padding: 8px;
+  padding: 8px 12px;
+  border: 2px solid currentColor;
   border-radius: 8px;
-  border: none;
-  background-color: #fff;
-  color: #333;
+  background-color: transparent;
   font-weight: bold;
   cursor: pointer;
 }
