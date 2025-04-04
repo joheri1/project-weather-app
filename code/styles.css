@@ -80,7 +80,7 @@ img {
 #four-day-forecast {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  /*gap: 8px;*/
 }
 
 #four-day-forecast p {
