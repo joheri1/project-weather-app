@@ -25,6 +25,9 @@ const backgroundColors = {
   "snow": "#e1f5fe"
 };
 
+fetchTodaysWeatherAsync("Las Vegas");
+fetchForecastWeatherAsync("Las Vegas");
+
 // ========== DOM Elements ==========
 const cityName = document.getElementById("city");
 const description = document.getElementById("description");
@@ -71,7 +74,7 @@ const fetchTodaysWeatherAsync = async (city) => {
     const getWeatherMessage = weatherMessages[weatherDescription];
     console.log("weather-message element:", document.getElementById("weather-message"));
     console.log("personalizedMessage:", personalizedMessage);
-    
+
     const personalizedMessage = getWeatherMessage
       ? getWeatherMessage(data.name)
       : `Enjoy the weather in <strong>${data.name}</strong>!`;
@@ -145,7 +148,9 @@ searchCityInput.addEventListener("keypress", (event) => {
 });
 
 // ========== Default city ==========
-const defaultCity = "Las Vegas";
-fetchTodaysWeatherAsync(defaultCity);
-fetchForecastWeatherAsync(defaultCity);
+/*document.addEventListener("DOMContentLoaded", () => {
+  const defaultCity = "Las Vegas";
+  fetchTodaysWeatherAsync(defaultCity);
+  fetchForecastWeatherAsync(defaultCity);
+});*/
 
