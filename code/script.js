@@ -73,15 +73,7 @@ const fetchTodaysWeatherAsync = async (city) => {
       ? getWeatherMessage(data.name)
       : `Enjoy the weather in <strong>${data.name}</strong>!`;
 
-    console.log("weather-message element:", document.getElementById("weather-message"));
-    console.log("personalizedMessage:", personalizedMessage);
-
-    const weatherMessageEl = document.getElementById("weather-message");
-    if (weatherMessageEl) {
-      weatherMessageEl.innerHTML = personalizedMessage;
-    } else {
-      console.error("Error: weather-message element not found!");
-    }
+      document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     // Background color
     const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
