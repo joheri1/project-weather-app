@@ -97,6 +97,7 @@ const fetchTodaysWeatherAsync = async (city) => {
       const container = document.querySelector(".weather-container");
     
       container.style.background = theme.background;
+      document.body.style.backgroundColor = theme.background;
     
       // Text color
       container.style.color = theme.text;
