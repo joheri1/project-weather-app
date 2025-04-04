@@ -17,10 +17,25 @@ const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const today = new Date().getDate() 
 
 const weatherIcons = {
-    "scattered clouds": "./assets/design-1/Group16.png", // Cloudy
-    "few clouds": "./assets/design-1/Group34.png", // Few clouds
+    "scattered clouds": "./assets/design-1/noun_Cloud_1188486.svg", // Cloudy
+    "few clouds": "./assets/design-1/noun_Cloud_1188486.svg", // Few clouds
     "clear sky": "./assets/design-1/Group37.png", // Sunny
+    "rain": "./assets/design-1/noun_Umbrella_2030530.svg", // Rainy
 }
+  const weatherMessages = {
+    "clear sky": "Put your sunglasses on - the sun is shining! 😎",
+    "few clouds": "A few clouds won't ruin your day! ☁️",
+    "scattered clouds": "Clouds are just nature’s blanket. 😌",
+    "rain": "Grab your umbrella! ☔",
+    "snow": "It’s a winter wonderland out there! ❄️",
+  };
+  const backgroundColors = {
+    "clear sky": "#ffe082",    
+    "few clouds": "#b3e5fc",    
+    "scattered clouds": "#90caf9",
+    "rain": "#4fc3f7",
+    "snow": "#e1f5fe",
+  };
         
 //Fetch todays weather
 const fetchTodaysWeatherAsync = async (city) => {
