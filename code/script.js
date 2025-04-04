@@ -114,11 +114,11 @@ const fetchForecastWeatherAsync = async (city) => {
     filteredForecast.forEach(forecast => {
       const date = new Date(forecast.dt_txt);
       const dayName = weekdays[date.getDay()];
-      //const iconURL = weatherIcons[forecast.weather[0].description] || "./assets/design-1/Group16.pn";g
-      const temp = Math.round(forecast.main.temp);
-
+      const tempMin = Math.round(forecast.main.temp_min);
+      const tempMax = Math.round(forecast.main.temp_max);
+    
       fourDayForecast.innerHTML += `
-        <p>${dayName}: ${temp} °C</p>`;
+        <p>${dayName}: ${tempMin} / ${tempMax} °C</p>`;
     });
 
   } catch (error) {
