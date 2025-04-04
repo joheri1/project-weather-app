@@ -34,7 +34,7 @@ const searchCityInput = document.getElementById("search-city");
 const searchButton = document.getElementById("search-button");
 
 // ========== Helpers ==========
-const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const today = new Date().getDate();
 
 // ========== Weather Fetch ==========
