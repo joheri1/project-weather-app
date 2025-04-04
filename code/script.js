@@ -69,12 +69,13 @@ const fetchTodaysWeatherAsync = async (city) => {
 
     // Set cheezy weather text
     const getWeatherMessage = weatherMessages[weatherDescription];
-    console.log("weather-message element:", document.getElementById("weather-message"));
-    console.log("personalizedMessage:", personalizedMessage);
 
     const personalizedMessage = getWeatherMessage
       ? getWeatherMessage(data.name)
       : `Enjoy the weather in <strong>${data.name}</strong>!`;
+    
+      console.log("weather-message element:", document.getElementById("weather-message"));
+      console.log("personalizedMessage:", personalizedMessage);
 
     document.getElementById("weather-message").innerHTML = personalizedMessage;
 
