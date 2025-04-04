@@ -17,6 +17,7 @@ const weatherMessages = {
   "scattered clouds": (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
   "broken clouds:": (city) => `Looks like <strong>${city}</strong> is having a cloudy day!`,
   "rain": (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
+  "light snow": (city) => `Snow kisses in the <strong>${city}</strong> air – don’t forget your mittens!`,
   "snow": (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
 
