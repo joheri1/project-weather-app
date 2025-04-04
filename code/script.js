@@ -17,12 +17,27 @@ const weatherMessages = {
   "snow": (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
 
-const backgroundColors = {
-  "clear sky": "#ffe082",
-  "few clouds": "#b3e5fc",
-  "scattered clouds": "#90caf9",
-  "rain": "#4fc3f7",
-  "snow": "#e1f5fe"
+const weatherThemes = {
+  "clear sky": {
+    background: "rgb(247, 233, 185)",
+    text: "rgb(42, 85, 16)"
+  },
+  "few clouds": {
+    background: "rgb(217, 231, 242)",
+    text: "#333"
+  },
+  "scattered clouds": {
+    background: "rgb(222, 228, 237)",
+    text: "#333"
+  },
+  "rain": {
+    background: "rgb(198, 220, 234)",
+    text: "#1a1a1a"
+  },
+  "snow": {
+    background: "rgb(240, 240, 255)",
+    text: "#444"
+  }
 };
 
 // ========== DOM Elements ==========
@@ -72,13 +87,22 @@ const fetchTodaysWeatherAsync = async (city) => {
       document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     // Background color
-    const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
-    document.querySelector(".weather-container").style.backgroundColor = newBg;
+    const theme = weatherThemes[weatherDescription];
+    const container = document.querySelector(".weather-container");
+
+    if (theme) {
+      container.style.background = theme.background;
+      container.style.color = theme.text;
+    } else {
+      // Fallback: "pastell-lila" theme
+      container.style.background = "rgb(239, 222, 245)";
+      container.style.color = "#4a4a4a";
+      console.warn("No theme defined for:", weatherDescription);
+    }
 
     // Night mode
     const now = new Date().getTime();
     const sunsetTimestamp = data.sys.sunset * 1000;
-    const container = document.querySelector(".weather-container");
     if (now > sunsetTimestamp) {
       container.classList.add("night-mode");
     } else {
