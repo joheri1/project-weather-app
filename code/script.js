@@ -69,15 +69,19 @@ const fetchTodaysWeatherAsync = async (city) => {
 
     // Set cheezy weather text
     const getWeatherMessage = weatherMessages[weatherDescription];
+    const personalizedMessage = getWeatherMessage
+      ? getWeatherMessage(data.name)
+      : `Enjoy the weather in <strong>${data.name}</strong>!`;
 
-const personalizedMessage = getWeatherMessage
-  ? getWeatherMessage(data.name)
-  : `Enjoy the weather in <strong>${data.name}</strong>!`;
+    console.log("weather-message element:", document.getElementById("weather-message"));
+    console.log("personalizedMessage:", personalizedMessage);
 
-  console.log("weather-message element:", document.getElementById("weather-message"));
-  console.log("personalizedMessage:", personalizedMessage);
-
-  document.getElementById("weather-message").innerHTML = personalizedMessage;
+    const weatherMessageEl = document.getElementById("weather-message");
+    if (weatherMessageEl) {
+      weatherMessageEl.innerHTML = personalizedMessage;
+    } else {
+      console.error("Error: weather-message element not found!");
+    }
 
     // Background color
     const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
