@@ -68,8 +68,12 @@ const fetchTodaysWeatherAsync = async (city) => {
     sunsetTime.innerHTML = `Sunset: ${sunset}`;
 
     // Set cheezy weather text
-    const weatherMessage = weatherMessages[weatherDescription] || "Enjoy the weather!";
-    document.getElementById("weather-message").innerText = weatherMessage;
+    const getWeatherMessage = weatherMessages[weatherDescription];
+    const personalizedMessage = getWeatherMessage
+      ? getWeatherMessage(data.name)
+      : `Enjoy the weather in <strong>${data.name}</strong>!`;
+
+    document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     // Background color
     const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
