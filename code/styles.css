@@ -55,7 +55,6 @@ img {
 .weather-text {
   width: 100%;
   font-style: italic;
-  color: #333;
 }
 
 /* ========== Forecast + Search ========== */
@@ -82,10 +81,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
   padding: 8px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
   font-size: 16px;
 }
 
