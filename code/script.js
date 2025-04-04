@@ -10,11 +10,11 @@ const weatherIcons = {
 };
 
 const weatherMessages = {
-  "clear sky": "Put your sunglasses on - the sun is shining!",
-  "few clouds": "A few clouds won't ruin your day!",
-  "scattered clouds": "Clouds are just nature’s blanket.",
-  "rain": "Grab your umbrella!",
-  "snow": "It’s a winter wonderland out there!"
+  "clear sky": (city) => `Put your sunglasses on – the sun is shining in <strong>${city}</strong>!`,
+  "few clouds": (city) => `A few clouds in <strong>${city}</strong> won't ruin your day!`,
+  "scattered clouds": (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
+  "rain": (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
+  "snow": (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
 
 const backgroundColors = {
