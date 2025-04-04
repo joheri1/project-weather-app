@@ -112,6 +112,7 @@ const fetchTodaysWeatherAsync = async (city) => {
       input.style.color = theme.text;
       input.style.border = `2px solid ${theme.text}`;
       input.style.backgroundColor = "white";
+      input.style.caretColor = theme.text; 
     
       // Placeholder color
       input.setAttribute("style", input.getAttribute("style") + `; caret-color: ${theme.text};`);
