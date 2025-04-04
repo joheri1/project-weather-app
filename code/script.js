@@ -5,7 +5,7 @@ const BASE_URL_FORECAST = "/.netlify/functions/fetchForecast";
 const weatherIcons = {
   "scattered clouds": "./assets/design-2/noun_Cloud_1188486.svg",
   "few clouds": "./assets/design-2/noun_Cloud_1188486.svg",
-  "clear sky": "./assets/design-2/Group37.png",
+  "clear sky": "./assets/design-2/noun_Sunglasses_2055147.svg",
   "rain": "./assets/design-2/noun_Umbrella_2030530.svg"
 };
 
