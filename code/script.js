@@ -25,9 +25,6 @@ const backgroundColors = {
   "snow": "#e1f5fe"
 };
 
-fetchTodaysWeatherAsync("Las Vegas");
-fetchForecastWeatherAsync("Las Vegas");
-
 // ========== DOM Elements ==========
 const cityName = document.getElementById("city");
 const description = document.getElementById("description");
@@ -148,9 +145,9 @@ searchCityInput.addEventListener("keypress", (event) => {
 });
 
 // ========== Default city ==========
-/*document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const defaultCity = "Las Vegas";
   fetchTodaysWeatherAsync(defaultCity);
   fetchForecastWeatherAsync(defaultCity);
-});*/
+});
 
