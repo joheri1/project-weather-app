@@ -118,7 +118,7 @@ const fetchForecastWeatherAsync = async (city) => {
       const temp = Math.round(forecast.main.temp);
 
       fourDayForecast.innerHTML += `
-        <p>${dayName}: <img src="${iconURL}" alt="weather icon"> ${temp} °C</p>`;
+        <p>${dayName}: ${temp} °C</p>`;
     });
 
   } catch (error) {
