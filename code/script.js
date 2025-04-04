@@ -26,9 +26,7 @@ const backgroundColors = {
 };
 
 // ========== DOM Elements ==========
-const cityName = document.getElementById("city");
 const description = document.getElementById("description");
-const temperature = document.getElementById("temperature");
 const sunriseTime = document.getElementById("sunrise");
 const sunsetTime = document.getElementById("sunset");
 const fourDayForecast = document.getElementById("four-day-forecast");
