@@ -3,10 +3,10 @@ const BASE_URL = "/.netlify/functions/fetchWeather";
 const BASE_URL_FORECAST = "/.netlify/functions/fetchForecast";
 
 const weatherIcons = {
-  "scattered clouds": "./assets/design-1/noun_Cloud_1188486.svg",
-  "few clouds": "./assets/design-1/noun_Cloud_1188486.svg",
-  "clear sky": "./assets/design-1/Group37.png",
-  "rain": "./assets/design-1/noun_Umbrella_2030530.svg"
+  "scattered clouds": "./assets/design-2/noun_Cloud_1188486.svg",
+  "few clouds": "./assets/design-2/noun_Cloud_1188486.svg",
+  "clear sky": "./assets/design-2/Group37.png",
+  "rain": "./assets/design-2/noun_Umbrella_2030530.svg"
 };
 
 const weatherMessages = {
@@ -114,7 +114,7 @@ const fetchForecastWeatherAsync = async (city) => {
     filteredForecast.forEach(forecast => {
       const date = new Date(forecast.dt_txt);
       const dayName = weekdays[date.getDay()];
-      const iconURL = weatherIcons[forecast.weather[0].description] || "./assets/design-1/Group16.png";
+      //const iconURL = weatherIcons[forecast.weather[0].description] || "./assets/design-1/Group16.pn";g
       const temp = Math.round(forecast.main.temp);
 
       fourDayForecast.innerHTML += `
