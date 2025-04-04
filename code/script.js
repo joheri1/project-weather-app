@@ -36,6 +36,13 @@ const weatherIcons = {
     "rain": "#4fc3f7",
     "snow": "#e1f5fe",
   };
+
+const weatherMessage = weatherMessages[weatherDescription] || "Enjoy the weather!";
+document.getElementById("weather-message").innerText = weatherMessage;
+
+
+const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
+document.querySelector(".weather-container").style.backgroundColor = newBg;
         
 //Fetch todays weather
 const fetchTodaysWeatherAsync = async (city) => {
