@@ -55,6 +55,12 @@ img {
 .weather-text {
   width: 100%;
   font-style: italic;
+  font-size: 37px;
+  max-width: 600px;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 45.1px;
+  padding-right: 10px;
 }
 
 /* ========== Forecast + Search ========== */
