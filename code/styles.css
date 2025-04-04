@@ -118,6 +118,10 @@ img {
 #search-button:hover {
   background-color: #eee;
 }
+#search-city::placeholder {
+  color: inherit; 
+  opacity: 1;   
+}
 
 /* ========== Footer ========== */
 

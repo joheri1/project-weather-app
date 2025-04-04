@@ -94,13 +94,27 @@ const fetchTodaysWeatherAsync = async (city) => {
     const container = document.querySelector(".weather-container");
 
     if (theme) {
+      const container = document.querySelector(".weather-container");
+    
       container.style.background = theme.background;
+    
+      // Text color
       container.style.color = theme.text;
-    } else {
-      // Fallback: "pastell-lila" theme
-      container.style.background = "rgb(239, 222, 245)";
-      container.style.color = "#4a4a4a";
-      console.warn("No theme defined for:", weatherDescription);
+    
+      // Button
+      const button = document.getElementById("search-button");
+      button.style.color = theme.text;
+      button.style.border = `2px solid ${theme.text}`;
+      button.style.backgroundColor = "transparent";
+    
+      // Inputfield
+      const input = document.getElementById("search-city");
+      input.style.color = theme.text;
+      input.style.border = `2px solid ${theme.text}`;
+      input.style.backgroundColor = "white";
+    
+      // Placeholder color
+      input.setAttribute("style", input.getAttribute("style") + `; caret-color: ${theme.text};`);
     }
 
     // Night mode
