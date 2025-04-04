@@ -57,7 +57,7 @@ const fetchTodaysWeatherAsync = async (city) => {
     temperature.innerHTML = `${Math.round(data.main.temp)} °C`;
 
     // Weather icon
-    const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-1/Group16.png";
+    const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
     document.getElementById("weather-icon").src = weatherIconURL;
 
     // Sunrise/Sunset
@@ -70,14 +70,14 @@ const fetchTodaysWeatherAsync = async (city) => {
     // Set cheezy weather text
     const getWeatherMessage = weatherMessages[weatherDescription];
 
-    const personalizedMessage = getWeatherMessage
-      ? getWeatherMessage(data.name)
-      : `Enjoy the weather in <strong>${data.name}</strong>!`;
-    
-      console.log("weather-message element:", document.getElementById("weather-message"));
-      console.log("personalizedMessage:", personalizedMessage);
+const personalizedMessage = getWeatherMessage
+  ? getWeatherMessage(data.name)
+  : `Enjoy the weather in <strong>${data.name}</strong>!`;
 
-    document.getElementById("weather-message").innerHTML = personalizedMessage;
+  console.log("weather-message element:", document.getElementById("weather-message"));
+  console.log("personalizedMessage:", personalizedMessage);
+
+  document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     // Background color
     const newBg = backgroundColors[weatherDescription] || "#e0e0e0";
