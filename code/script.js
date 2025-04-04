@@ -137,7 +137,7 @@ searchCityInput.addEventListener("keypress", (event) => {
   }
 });
 
-// ========== Init ==========
+// ========== Default city ==========
 const defaultCity = "Las Vegas";
 fetchTodaysWeatherAsync(defaultCity);
 fetchForecastWeatherAsync(defaultCity);
