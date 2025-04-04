@@ -5,6 +5,8 @@ const BASE_URL_FORECAST = "/.netlify/functions/fetchForecast";
 const weatherIcons = {
   "scattered clouds": "./assets/design-2/noun_Cloud_1188486.svg",
   "few clouds": "./assets/design-2/noun_Cloud_1188486.svg",
+  "scattered clouds": "./assets/design-2/noun_Cloud_1188486.svg",
+  "broken clouds:": "./assets/design-2/noun_Cloud_1188486.svg",
   "clear sky": "./assets/design-2/noun_Sunglasses_2055147.svg",
   "rain": "./assets/design-2/noun_Umbrella_2030530.svg"
 };
@@ -13,6 +15,7 @@ const weatherMessages = {
   "clear sky": (city) => `Put your sunglasses on – the sun is shining in <strong>${city}</strong>!`,
   "few clouds": (city) => `A few clouds in <strong>${city}</strong> won't ruin your day!`,
   "scattered clouds": (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
+  "broken clouds:": (city) => `Looks like <strong>${city}</strong> is having a cloudy day!`,
   "rain": (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
   "snow": (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
