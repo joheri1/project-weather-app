@@ -109,7 +109,7 @@ img {
   padding: 8px;
   border: 2px solid currentColor;
   border-radius: 8px;
-  background-color: white;
+  /*background-color: white;*/
 }
 
 #search-button {
@@ -123,7 +123,7 @@ img {
 }
 
 #search-button:hover {
-  background-color: #eee;
+  background-color: inherit;
 }
 #search-city::placeholder {
   color: inherit; 
