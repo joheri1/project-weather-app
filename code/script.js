@@ -92,7 +92,7 @@ const fetchTodaysWeatherAsync = async (city) => {
       ? getWeatherMessage(data.name)
       : `Enjoy the weather in <strong>${data.name}</strong>!`;
 
-      document.getElementById("weather-message").innerHTML = personalizedMessage;
+    document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     // Background color
     const theme = weatherThemes[weatherDescription];
@@ -118,77 +118,99 @@ const fetchTodaysWeatherAsync = async (city) => {
       input.style.color = theme.text;
       input.style.border = `2px solid ${theme.text}`;
       input.style.backgroundColor = "white";
-      input.style.caretColor = theme.text; 
+      input.style.caretColor = theme.text;
     
       // Placeholder color
       input.setAttribute("style", input.getAttribute("style") + `; caret-color: ${theme.text};`);
     }
 
     // Night mode
+  
     const now = new Date().getTime();
     const sunsetTimestamp = data.sys.sunset * 1000;
+    
     if (now > sunsetTimestamp) {
       container.classList.add("night-mode");
+      container.style.color = "#f5e79e";
+      document.body.style.backgroundColor = "#0b1d3a";
+      
+      // Text and icon for night mode
+      document.getElementById("weather-message").innerHTML = `Have a good night in <strong>${data.name}</strong>`;
+      
+      document.getElementById("weather-icon").src = "./assets/design-2/moon.png";
+      
+      document.getElementById("weather-icon").alt = "Moon icon";
     } else {
+      
       container.classList.remove("night-mode");
+      
+      // Day mode text and icon
+      const getWeatherMessage = weatherMessages[weatherDescription];
+      const personalizedMessage = getWeatherMessage
+        ? getWeatherMessage(data.name)
+        : `Enjoy the weather in <strong>${data.name}</strong>!`;
+      
+      document.getElementById("weather-message").innerHTML = personalizedMessage;
+      
+      const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
+      
+      document.getElementById("weather-icon").src = weatherIconURL;
     }
 
+    // ========== Forecast Fetch ==========
+    const fetchForecastWeatherAsync = async (city) => {
+      const forecastURL = `${BASE_URL_FORECAST}?city=${city}`;
+
+      try {
+        const response = await fetch(forecastURL);
+        if (!response.ok) throw new Error("Failed to fetch forecast");
+
+        const data = await response.json();
+
+        const filteredForecast = data.list.filter(forecast => {
+          const forecastDate = new Date(forecast.dt_txt);
+          return forecastDate.getHours() === 12 && forecastDate.getDate() !== today;
+        });
+
+        fourDayForecast.innerHTML = "";
+
+        filteredForecast.forEach(forecast => {
+          const date = new Date(forecast.dt_txt);
+          const dayName = weekdays[date.getDay()];
+          const tempMin = Math.round(forecast.main.temp_min);
+          const tempMax = Math.round(forecast.main.temp_max);
+    
+          fourDayForecast.innerHTML += `
+        <p>${dayName}: ${tempMin} / ${tempMax} °C</p>`;
+        });
+
+      } catch (error) {
+        console.error("Error fetching forecast", error);
+      }
+    };
+
+    // ========== Events ==========
+    searchButton.addEventListener("click", () => {
+      const city = searchCityInput.value.trim();
+      if (city) {
+        fetchTodaysWeatherAsync(city);
+        fetchForecastWeatherAsync(city);
+      }
+    });
+
+    searchCityInput.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        searchButton.click();
+      }
+    });
+
+    // ========== Default city ==========
+    document.addEventListener("DOMContentLoaded", () => {
+      const defaultCity = "Las Vegas";
+      fetchTodaysWeatherAsync(defaultCity);
+      fetchForecastWeatherAsync(defaultCity);
+    });
   } catch (error) {
     console.error("Error fetching today's weather", error);
   }
-};
-
-// ========== Forecast Fetch ==========
-const fetchForecastWeatherAsync = async (city) => {
-  const forecastURL = `${BASE_URL_FORECAST}?city=${city}`;
-
-  try {
-    const response = await fetch(forecastURL);
-    if (!response.ok) throw new Error("Failed to fetch forecast");
-
-    const data = await response.json();
-
-    const filteredForecast = data.list.filter(forecast => {
-      const forecastDate = new Date(forecast.dt_txt);
-      return forecastDate.getHours() === 12 && forecastDate.getDate() !== today;
-    });
-
-    fourDayForecast.innerHTML = "";
-
-    filteredForecast.forEach(forecast => {
-      const date = new Date(forecast.dt_txt);
-      const dayName = weekdays[date.getDay()];
-      const tempMin = Math.round(forecast.main.temp_min);
-      const tempMax = Math.round(forecast.main.temp_max);
-    
-      fourDayForecast.innerHTML += `
-        <p>${dayName}: ${tempMin} / ${tempMax} °C</p>`;
-    });
-
-  } catch (error) {
-    console.error("Error fetching forecast", error);
-  }
-};
-
-// ========== Events ==========
-searchButton.addEventListener("click", () => {
-  const city = searchCityInput.value.trim();
-  if (city) {
-    fetchTodaysWeatherAsync(city);
-    fetchForecastWeatherAsync(city);
-  }
-});
-
-searchCityInput.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
-    searchButton.click();
-  }
-});
-
-// ========== Default city ==========
-document.addEventListener("DOMContentLoaded", () => {
-  const defaultCity = "Las Vegas";
-  fetchTodaysWeatherAsync(defaultCity);
-  fetchForecastWeatherAsync(defaultCity);
-});
-
+}
