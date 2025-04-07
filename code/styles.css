@@ -156,8 +156,8 @@ footer {
   background-color: #0b1d3a;
 }
 
-.weather-container.night-mode #search-city,
-.weather-container.night-mode #search-button {
+.weather-container.night-mode #search-button,
+.weather-container.night-mode #search-city {
   background-color: #0b1d3a;
   color: #f5e79e;
   border: 2px solid #f5e79e;
