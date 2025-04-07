@@ -149,8 +149,8 @@ footer {
   color: #f5e79e;
 }
 
-.night-mode .weather-text,
-.night-mode #four-day-forecast p,
+.night-mode .weather-text, .night-mode .current-weather,
+.night-mode #four-day-forecast p, .night-mode .sun-times,
 .night-mode footer {
   color: #f5e79e;
   background-color: #0b1d3a;
