@@ -156,10 +156,16 @@ footer {
   background-color: #0b1d3a;
 }
 
-.night-mode #search-city,
-.night-mode #search-button {
+.weather-container.night-mode #search-city,
+.weather-container.night-mode #search-button {
   background-color: #0b1d3a;
   color: #f5e79e;
+  border: 2px solid #f5e79e;
+}
+
+.weather-container.night-mode #search-city::placeholder {
+  color: #f5e79e;
+  opacity: 1;
 }
 
 /* ========== Media queries ========== */
