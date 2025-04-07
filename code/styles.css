@@ -145,21 +145,21 @@ footer {
 /* ========== Night mode ========== */
 
 .night-mode {
-  background: #1a1a1a !important;
-  color: white;
+  background: #0b1d3a !important;
+  color: #f5e79e;
 }
 
 .night-mode .weather-text,
 .night-mode #four-day-forecast p,
 .night-mode footer {
-  color: white;
-  background-color: #333;
+  color: #f5e79e;
+  background-color: #0b1d3a;
 }
 
 .night-mode #search-city,
 .night-mode #search-button {
-  background-color: #444;
-  color: white;
+  background-color: #0b1d3a;
+  color: #f5e79e;
 }
 
 /* ========== Media queries ========== */
