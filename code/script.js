@@ -67,7 +67,8 @@ const fetchTodaysWeatherAsync = async (city) => {
     if (!response.ok) throw new Error("Failed to fetch today's weather");
 
     const data = await response.json();
-    const weatherDescription = data.weather[0].description;
+    const fetchedDescription = data.weather[0].description;
+    const weatherDescription = weatherCategories[fetchedDescription] || "default";
     const capitalizedDescription = weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
     description.innerHTML = `${capitalizedDescription} | ${Math.round(data.main.temp)} °C`;
 

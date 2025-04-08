@@ -150,9 +150,7 @@ footer {
   color: rgb(42, 85, 16);
 }
 
-.theme-few-clouds,
-.theme-scattered-clouds,
-.theme-broken-clouds {
+.theme-clouds {
   background-color: rgb(222, 228, 237);
   color: #333;
 }
@@ -162,8 +160,7 @@ footer {
   color: #1a1a1a;
 }
 
-.theme-snow,
-.theme-light-snow {
+.theme-snow {
   background-color: rgb(240, 240, 255);
   color: #444;
 }
