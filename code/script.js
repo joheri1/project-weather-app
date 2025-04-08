@@ -24,7 +24,7 @@ const weatherCategories = {
 };
 
 const weatherMessages = {
-  clear: (city) => `Put your sunglasses on – the sun is shining in <strong>${city}</strong>!`,
+  clear: (city) => `Put your sunnies on – the weather is looking rather great today in <strong>${city}</strong>!`,
   clouds: (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
   rain: (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
   snow: (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
