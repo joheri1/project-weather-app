@@ -128,7 +128,10 @@ const fetchForecastWeatherAsync = async (city) => {
       return forecastDate.getHours() === 12 && forecastDate.getDate() !== today;
     });
 
-    fourDayForecast.innerHTML = "";
+    fourDayForecast.innerHTML = ""; // Clear previous forecast
+
+    fourDayForecast.innerHTML += `
+  <p><span class="forecast-day">${dayName}</span><span class="forecast-temp">${tempMin} / ${tempMax} °C</span></p>`;
 
     filteredForecast.forEach(forecast => {
       const date = new Date(forecast.dt_txt);
