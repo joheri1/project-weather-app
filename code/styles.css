@@ -156,22 +156,22 @@ footer {
   background-color: #0b1d3a;
 }
 
-
 .weather-container.night-mode #search-city {
-  background-color: #f5e79e;
-  color: #0b1d3a;
-  border: 2px solid #f5e79e;
+  background-color: #0b1d3a !important;
+  color: #f5e79e !important;
+  border: 2px solid #f5e79e !important;
+  caret-color: #f5e79e !important;
 }
 
 .weather-container.night-mode #search-city::placeholder {
-  color: #0b1d3a;
+  color: #f5e79e;
   opacity: 1;
 }
 
 .weather-container.night-mode #search-button {
-  background-color: #0b1d3a;
-  color: #f5e79e;
-  border: 2px solid #f5e79e;
+  background-color: #0b1d3a !important;
+  color: #f5e79e !important;
+  border: 2px solid #f5e79e !important;
 }
 
 /* ========== Media queries ========== */
@@ -191,9 +191,18 @@ footer {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   #four-day-forecast p {
     font-size: 18px;
   }
+  .current-weather, .sun-times {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 25.6px;
+  }
+  .weather-text {
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 45.1px;
+  }
 }
-
