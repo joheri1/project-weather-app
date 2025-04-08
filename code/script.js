@@ -30,25 +30,6 @@ const weatherMessages = {
   snow: (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
 
-const weatherThemes = {
-  clear: {
-    background: "rgb(247, 233, 185)",
-    text: "rgb(42, 85, 16)"
-  },
-  clouds: {
-    background: "rgb(222, 228, 237)",
-    text: "#333"
-  },
-  rain: {
-    background: "rgb(198, 220, 234)",
-    text: "#1a1a1a"
-  },
-  snow: {
-    background: "rgb(240, 240, 255)",
-    text: "#444"
-  }
-};
-
 const description = document.getElementById("description");
 const sunriseTime = document.getElementById("sunrise");
 const sunsetTime = document.getElementById("sunset");
