@@ -143,6 +143,31 @@ footer {
   color: #fff;
 }
 
+/* === Day themes === */
+
+.theme-clear {
+  background-color: rgb(247, 233, 185);
+  color: rgb(42, 85, 16);
+}
+
+.theme-few-clouds,
+.theme-scattered-clouds,
+.theme-broken-clouds {
+  background-color: rgb(222, 228, 237);
+  color: #333;
+}
+
+.theme-rain {
+  background-color: rgb(198, 220, 234);
+  color: #1a1a1a;
+}
+
+.theme-snow,
+.theme-light-snow {
+  background-color: rgb(240, 240, 255);
+  color: #444;
+}
+
 /* ========== Night mode ========== */
 
 .night-mode {

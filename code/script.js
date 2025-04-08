@@ -2,49 +2,48 @@ const BASE_URL = "/.netlify/functions/fetchWeather";
 const BASE_URL_FORECAST = "/.netlify/functions/fetchForecast";
 
 const weatherIcons = {
-  "scattered clouds": "./assets/design-2/noun_Cloud_1188486.svg",
-  "few clouds": "./assets/design-2/noun_Cloud_1188486.svg",
-  "broken clouds": "./assets/design-2/noun_Cloud_1188486.svg",
-  "clear sky": "./assets/design-2/noun_Sunglasses_2055147.svg",
-  "rain": "./assets/design-2/noun_Umbrella_2030530.svg"
+  clear: "./assets/design-2/noun_Sunglasses_2055147.svg",
+  clouds: "./assets/design-2/noun_Cloud_1188486.svg",
+  rain: "./assets/design-2/noun_Umbrella_2030530.svg",
+  snow: "./assets/design-2/snowflake.png",
+};
+const weatherCategories = {
+  "clear sky": "clear",
+  "few clouds": "clouds",
+  "scattered clouds": "clouds",
+  "broken clouds": "clouds",
+  "overcast clouds": "clouds",
+  "light rain": "rain",
+  "moderate rain": "rain",
+  "heavy intensity rain": "rain",
+  "shower rain": "rain",
+  "rain": "rain",
+  "thunderstorm": "rain",
+  "light snow": "snow",
+  "snow": "snow"
 };
 
 const weatherMessages = {
-  "clear sky": (city) => `Put your sunglasses on – the sun is shining in <strong>${city}</strong>!`,
-  "few clouds": (city) => `A few clouds in <strong>${city}</strong> won't ruin your day!`,
-  "scattered clouds": (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
-  "broken clouds": (city) => `Looks like <strong>${city}</strong> is having a cloudy day!`,
-  "rain": (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
-  "light snow": (city) => `Snow kisses in the <strong>${city}</strong> air – don’t forget your mittens!`,
-  "snow": (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
+  clear: (city) => `Put your sunglasses on – the sun is shining in <strong>${city}</strong>!`,
+  clouds: (city) => `Clouds are just <strong>${city}</strong>’s blanket.`,
+  rain: (city) => `Grab your umbrella if you're in <strong>${city}</strong> today!`,
+  snow: (city) => `It’s a <strong>${city}</strong> winter wonderland out there!`
 };
 
 const weatherThemes = {
-  "clear sky": {
+  clear: {
     background: "rgb(247, 233, 185)",
     text: "rgb(42, 85, 16)"
   },
-  "few clouds": {
-    background: "rgb(217, 231, 242)",
-    text: "#333"
-  },
-  "scattered clouds": {
+  clouds: {
     background: "rgb(222, 228, 237)",
     text: "#333"
   },
-  "broken clouds": {
-    background: "rgb(222, 228, 237)",
-    text: "#333"
-  },
-  "rain": {
+  rain: {
     background: "rgb(198, 220, 234)",
     text: "#1a1a1a"
   },
-  "snow": {
-    background: "rgb(240, 240, 255)",
-    text: "#444"
-  },
-  "light snow": {
+  snow: {
     background: "rgb(240, 240, 255)",
     text: "#444"
   }
@@ -85,10 +84,24 @@ const fetchTodaysWeatherAsync = async (city) => {
     const personalizedMessage = getWeatherMessage
       ? getWeatherMessage(data.name)
       : `Enjoy the weather in <strong>${data.name}</strong>!`;
-
     document.getElementById("weather-message").innerHTML = personalizedMessage;
 
     const container = document.querySelector(".weather-container");
+
+    // Themes
+    const themeClass = `theme-${weatherDescription.replace(/\s+/g, "-")}`;
+    container.classList.remove(
+      "theme-clear-sky",
+      "theme-few-clouds",
+      "theme-scattered-clouds",
+      "theme-broken-clouds",
+      "theme-rain",
+      "theme-snow",
+      "theme-light-snow"
+    );
+    container.classList.add(themeClass);
+
+    // 🌙 Night mode
     const now = new Date().getTime();
     const sunsetTimestamp = data.sys.sunset * 1000;
 
