@@ -23,7 +23,7 @@ img {
 /* ========== Main container ========== */
 
 .weather-container {
-  transition: background 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   border-radius: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -33,7 +33,7 @@ img {
   flex-direction: column;
   overflow-y: auto;
   color: currentColor;
-}
+  }
 
 /* ========== Sections ========== */
 
@@ -141,6 +141,7 @@ footer {
   border-style: dotted;
   text-align: center;
   color: #fff;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 /* === Day themes === */
