@@ -83,6 +83,15 @@ const fetchTodaysWeatherAsync = async (city) => {
     );
     container.classList.add(themeClass);
 
+    document.body.classList.remove(
+      "theme-clear",
+      "theme-clouds",
+      "theme-rain",
+      "theme-snow",
+      "theme-default"
+    );
+    document.body.classList.add(themeClass);
+
     // 🌙 Night mode
     const now = new Date().getTime();
     const sunsetTimestamp = data.sys.sunset * 1000;
