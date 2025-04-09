@@ -116,6 +116,8 @@ img {
   color: currentColor;
   caret-color: currentColor;
   transition: all 0.3s ease-in-out;
+  font-size: 16px; /* Prevent "zoom" on mobile */
+  line-height: 1.2;
 }
 
 #search-city::placeholder {
