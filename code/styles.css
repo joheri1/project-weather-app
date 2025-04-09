@@ -231,7 +231,7 @@ footer {
 @media screen and (max-height: 700px) {
 
   .weather-container {
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     gap: 12px;
     max-height: 100vh;
     overflow-y: auto;
