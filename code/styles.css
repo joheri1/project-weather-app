@@ -70,8 +70,7 @@ img {
   width: 100%;
 }
 
-.forecast,
-.search-form {
+.forecast {
   width: 50%;
 }
 
@@ -251,6 +250,11 @@ footer {
     margin: 6px 0;
   }
 
+  .search-form {
+    gap: 6px;
+    width: 50%;
+  }
+
   #search-city,
   #search-button {
     padding: 6px;
@@ -277,6 +281,9 @@ footer {
   
   #four-day-forecast p {
     font-size: 18px;
+  }
+  .search-form {
+    width: 50%;
   }
 
   .current-weather,
