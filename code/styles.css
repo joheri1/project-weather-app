@@ -253,7 +253,8 @@ footer {
   #search-city,
   #search-button {
     padding: 6px;
-    font-size: 14px;
+    font-size: 16px; /* To prevent "zoom" on mobile */
+    line-height: 1.2;
   }
 
   footer {
