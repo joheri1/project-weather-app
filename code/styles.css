@@ -138,7 +138,7 @@ img {
 
 #search-button:hover {
   background-color: inherit;
-}
+  }
 
 /* ========== Footer ========== */
 
@@ -163,6 +163,9 @@ footer {
   background-color: rgb(247, 233, 185);
   color: rgb(42, 85, 16);
 }
+.theme-clear #search-button:hover {
+  background-color: rgba(42, 85, 16, 0.1); 
+}
 
 .theme-clouds {
   background-color: rgb(222, 228, 237);
@@ -171,6 +174,9 @@ footer {
 .theme-clouds footer {
   background-color: rgb(222, 228, 237);
   color: #333;
+}
+.theme-clouds #search-button:hover {
+  background-color: rgba(51, 51, 51, 0.05); 
 }
 
 .theme-rain {
@@ -181,6 +187,9 @@ footer {
   background-color: rgb(198, 220, 234);
   color: #1a1a1a;
 }
+.theme-rain #search-button:hover {
+  background-color: rgba(26, 26, 26, 0.05); 
+}
 
 .theme-snow {
   background-color: rgb(240, 240, 255);
@@ -189,6 +198,9 @@ footer {
 .theme-snow footer {
   background-color: rgb(240, 240, 255);
   color: #444;
+}
+.theme-rain #search-button:hover {
+  background-color: rgba(26, 26, 26, 0.05); 
 }
 
 /* ========== Night mode ========== */
@@ -220,6 +232,11 @@ footer {
   background-color: #0b1d3a !important;
   color: #f5e79e !important;
   border: 2px solid #f5e79e !important;
+}
+.night-mode #search-button:hover {
+  background-color: #142b4d !important; 
+  color: #fff !important;
+  border-color: #f5e79e !important;
 }
 
 .night-mode #search-city::placeholder {
