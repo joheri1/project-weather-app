@@ -224,24 +224,47 @@ footer {
 
 /* ========== Media queries ========== */
 
-@media screen and (max-width: 600px) {
-  .bottom-row {
-    flex-direction: column;
+@media screen and (max-height: 700px) {
+
+  .weather-container {
+    padding: 16px;
+    gap: 12px;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
-  .forecast,
-  .search-form {
-    width: 100%;
+  .weather-text {
+    font-size: 20px;
+    line-height: 26px;
+    max-width: 100%;
+  }
+
+  .current-weather,
+  .sun-times {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  #four-day-forecast p {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+
+  #search-city,
+  #search-button {
+    padding: 6px;
+    font-size: 14px;
   }
 
   footer {
-    font-size: 14px;
+    font-size: 12px;
+    padding: 6px;
+    margin-top: 10px;
   }
-  .weather-text {
-    font-size: 24px;
-    line-height: 30px;
-    margin: 0;
-    padding: 0;
+
+  .weather-icon {
+    width: 70px;
+    height: 70px;
   }
 }
 
