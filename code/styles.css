@@ -125,7 +125,8 @@ img {
 
 #search-button {
   flex: 1;
-  padding: 8px 12px;
+  /*padding: 8px 12px;*/
+  padding: 10px;
   border: 2px solid currentColor;
   border-radius: 8px;
   background-color: transparent;
