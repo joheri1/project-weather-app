@@ -7,6 +7,7 @@ const weatherIcons = {
   rain: "./assets/design-2/noun_Umbrella_2030530.svg",
   snow: "./assets/design-2/snowflake.png",
 };
+
 const weatherCategories = {
   "clear sky": "clear",
   "few clouds": "clouds",
@@ -53,15 +54,18 @@ const fetchTodaysWeatherAsync = async (city) => {
     const capitalizedDescription = weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
     description.innerHTML = `${capitalizedDescription} | ${Math.round(data.main.temp)} °C`;
 
+    // Set the weather icon based on the weather description
     const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
     document.getElementById("weather-icon").src = weatherIconURL;
 
+    // Sun rise and sunset times
     const localTimezone = data.timezone * 1000;
     const sunrise = new Date((data.sys.sunrise * 1000) + localTimezone).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const sunset = new Date((data.sys.sunset * 1000) + localTimezone).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     sunriseTime.innerHTML = `Sunrise: ${sunrise}`;
     sunsetTime.innerHTML = `Sunset: ${sunset}`;
 
+    // Set the weather message based on the weather description
     const getWeatherMessage = weatherMessages[weatherDescription];
     const personalizedMessage = getWeatherMessage
       ? getWeatherMessage(data.name)
@@ -70,35 +74,23 @@ const fetchTodaysWeatherAsync = async (city) => {
 
     const container = document.querySelector(".weather-container");
 
-    // Themes
-    const themeClass = `theme-${weatherDescription.replace(/\s+/g, "-")}`;
-    container.classList.remove(
-      "theme-clear-sky",
-      "theme-few-clouds",
-      "theme-scattered-clouds",
-      "theme-broken-clouds",
-      "theme-rain",
-      "theme-snow",
-      "theme-light-snow"
-    );
-    container.classList.add(themeClass);
-
-    document.body.classList.remove(
-      "theme-clear",
-      "theme-clouds",
-      "theme-rain",
-      "theme-snow",
-      "theme-default"
-    );
-    document.body.classList.add(themeClass);
-
-    // 🌙 Night mode
+    // Determine if it's day or night
+    // Get the current time and sunset time in milliseconds
     const now = new Date().getTime();
     const sunsetTimestamp = data.sys.sunset * 1000;
 
+    // Themes for different weather conditions and night mode
     if (now > sunsetTimestamp) {
       container.classList.add("night-mode");
       document.body.classList.add("night-mode");
+
+      document.body.classList.remove(
+        "theme-clear",
+        "theme-clouds",
+        "theme-rain",
+        "theme-snow",
+        "theme-default"
+      );
 
       document.getElementById("weather-message").innerHTML = `Have a good night in <strong>${data.name}</strong> 🌙`;
       document.getElementById("weather-icon").src = "./assets/design-2/moon.png";
@@ -107,11 +99,28 @@ const fetchTodaysWeatherAsync = async (city) => {
       container.classList.remove("night-mode");
       document.body.classList.remove("night-mode");
 
-      const getWeatherMessage = weatherMessages[weatherDescription];
-      const personalizedMessage = getWeatherMessage
-        ? getWeatherMessage(data.name)
-        : `Enjoy the weather in <strong>${data.name}</strong>!`;
+      const themeClass = `theme-${weatherDescription}`;
 
+      container.classList.remove(
+        "theme-clear",
+        "theme-clouds",
+        "theme-rain",
+        "theme-snow",
+        "theme-default"
+      );
+      container.classList.add(themeClass);
+
+      document.body.classList.remove(
+        "theme-clear",
+        "theme-clouds",
+        "theme-rain",
+        "theme-snow",
+        "theme-default"
+      );
+      document.body.classList.add(themeClass);
+
+      const getWeatherMessage = weatherMessages[weatherDescription];
+      const personalizedMessage = getWeatherMessage(data.name);
       document.getElementById("weather-message").innerHTML = personalizedMessage;
 
       const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
@@ -123,6 +132,7 @@ const fetchTodaysWeatherAsync = async (city) => {
   }
 };
 
+// Fetch forecast weather
 const fetchForecastWeatherAsync = async (city) => {
   const forecastURL = `${BASE_URL_FORECAST}?city=${city}`;
 
@@ -137,7 +147,7 @@ const fetchForecastWeatherAsync = async (city) => {
       return forecastDate.getHours() === 12 && forecastDate.getDate() !== today;
     });
 
-    fourDayForecast.innerHTML = ""; // Clear previous forecast
+    fourDayForecast.innerHTML = "";
 
     filteredForecast.forEach(forecast => {
       const date = new Date(forecast.dt_txt);
@@ -157,6 +167,7 @@ const fetchForecastWeatherAsync = async (city) => {
   }
 };
 
+// Event listeners for search button and input
 searchButton.addEventListener("click", () => {
   const city = searchCityInput.value.trim();
   if (city) {
