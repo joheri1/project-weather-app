@@ -125,8 +125,7 @@ img {
 
 #search-button {
   flex: 1;
-  /*padding: 8px 12px;*/
-  padding: 10px;
+  padding: 8px 12px;
   border: 2px solid currentColor;
   border-radius: 8px;
   background-color: transparent;
@@ -220,6 +219,7 @@ footer {
   background-color: #0b1d3a !important;
   color: #f5e79e !important;
   border: 2px solid #f5e79e !important;
+  padding: 10px;
 }
 
 .night-mode #search-city::placeholder {
