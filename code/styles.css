@@ -46,7 +46,7 @@ img {
 .weather-icon {
   align-self: flex-end;
   width: 100px;
-  height: 100px;
+  height: auto;
 }
 
 .weather-text {
