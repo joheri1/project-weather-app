@@ -210,7 +210,11 @@ footer {
   background-color: #0b1d3a;
 }
 
-.night-mode #search-city,
+.night-mode #search-city {
+  background-color: #f5e79e !important;
+  color: #0b1d3a !important;
+  border: 2px solid #f5e79e !important;
+}
 .night-mode #search-button {
   background-color: #0b1d3a !important;
   color: #f5e79e !important;
@@ -218,7 +222,7 @@ footer {
 }
 
 .night-mode #search-city::placeholder {
-  color: #f5e79e;
+  color: #0b1d3a;
   opacity: 1;
 }
 
@@ -252,7 +256,7 @@ footer {
 
   .search-form {
     gap: 6px;
-    width: 50%;
+    width: 100%;
   }
 
   #search-city,
