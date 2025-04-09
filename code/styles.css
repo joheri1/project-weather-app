@@ -321,6 +321,8 @@ body.theme-snow {
   
   #four-day-forecast p {
     font-size: 18px;
+    margin: 4px 0;      
+    line-height: 1.2; 
   }
   .search-form {
     width: 50%;
