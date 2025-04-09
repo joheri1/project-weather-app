@@ -130,9 +130,6 @@ const fetchForecastWeatherAsync = async (city) => {
 
     fourDayForecast.innerHTML = ""; // Clear previous forecast
 
-    fourDayForecast.innerHTML += `
-  <p><span class="forecast-day">${dayName}</span><span class="forecast-temp">${tempMin} / ${tempMax} °C</span></p>`;
-
     filteredForecast.forEach(forecast => {
       const date = new Date(forecast.dt_txt);
       const dayName = weekdays[date.getDay()];
@@ -140,7 +137,10 @@ const fetchForecastWeatherAsync = async (city) => {
       const tempMax = Math.round(forecast.main.temp_max);
 
       fourDayForecast.innerHTML += `
-        <p>${dayName}: ${tempMin} / ${tempMax} °C</p>`;
+        <p>
+          <span class="forecast-day">${dayName}</span>
+          <span class="forecast-temp">${tempMin} / ${tempMax} °C</span>
+        </p>`;
     });
 
   } catch (error) {
