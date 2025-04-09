@@ -275,12 +275,17 @@ footer {
   .weather-icon {
     width: 50px;
     height: 50px;
+    margin-right: 50px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   body {
     min-height: 100vh;
+  }
+
+  .weather-icon {
+    margin-right: 100px;
   }
   
   #four-day-forecast p {
