@@ -128,6 +128,15 @@ const fetchTodaysWeatherAsync = async (city) => {
       const weatherIconURL = weatherIcons[weatherDescription] || "./assets/design-2/noun_Cloud_1188486.svg";
       document.getElementById("weather-icon").src = weatherIconURL;
     }
+    
+    // Loading screen
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+      loadingScreen.style.opacity = "0";
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 300);
+    }
 
   } catch (error) {
     console.error("Error fetching today's weather", error);
@@ -169,6 +178,8 @@ const fetchForecastWeatherAsync = async (city) => {
     console.error("Error fetching forecast", error);
   }
 };
+
+document.getElementById("loading-screen").style.display = "none";
 
 // Event listeners for search button and input
 searchButton.addEventListener("click", () => {
