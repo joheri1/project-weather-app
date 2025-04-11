@@ -45,6 +45,8 @@ const fetchTodaysWeatherAsync = async (city) => {
   const todayURL = `${BASE_URL}?city=${city}`;
 
   try {
+    document.getElementById("weather-message").innerText = "Connecting the API to the weather gods...";
+    // Fetch today's weather
     const response = await fetch(todayURL);
     if (!response.ok) throw new Error("Failed to fetch today's weather");
 
@@ -137,6 +139,7 @@ const fetchForecastWeatherAsync = async (city) => {
   const forecastURL = `${BASE_URL_FORECAST}?city=${city}`;
 
   try {
+
     const response = await fetch(forecastURL);
     if (!response.ok) throw new Error("Failed to fetch forecast");
 
